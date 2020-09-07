@@ -44,7 +44,11 @@ function deleteCheck(e) {
   const item = e.target;
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
-    todo.remove()
+    //Animation
+    todo.classList.add("fall")
+    todo.addEventListener('transitionend', () =>{
+      todo.remove()
+    })
   }
 }
 
@@ -52,6 +56,7 @@ function completeTodo(e) {
   const item = e.target;
   if (item.classList[0] === "complete-btn") {
     const todo = item.parentElement;
-    todo.style.textDecoration = "line-through"
+    todo.style.textDecoration = "line-through";
+    todo.style.opacity = "0.2";
   }
 }
